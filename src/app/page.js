@@ -7,7 +7,7 @@ const page = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   const checkScreenSize = () => {
-    setIsMobile(window.innerWidth <= 768);  // Checking for mobile devices
+    setIsMobile(window.innerWidth <= 768); 
   };
 
   useEffect(() => {
@@ -19,9 +19,9 @@ const page = () => {
   return (
     <>
       {isMobile ? (
-        <MobileVew /> // Mobile view for devices with width <= 768px
+        <MobileVew /> 
       ) : (
-        <Website /> // Website view for tablets and PCs
+        <Website /> 
       )}
     </>
   );

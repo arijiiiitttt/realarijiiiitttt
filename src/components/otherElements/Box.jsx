@@ -1,10 +1,12 @@
 import { IoIosPlayCircle } from "react-icons/io";
 import { useRouter } from 'next/navigation';
+import { playMusic } from './playMusic';
 
 const Box = () => {
   const router = useRouter();
 
   const navigateToPortfolio = () => {
+    playMusic(); // Play the music when the icon is clicked
     router.push('/portfolio');
   };
 
@@ -21,7 +23,10 @@ const Box = () => {
             hello world
           </div>
           <div className="w-full h-1/10 flex justify-center items-center">
-            <IoIosPlayCircle onClick={navigateToPortfolio} style={{ fontSize: "1.9rem", color: "red" }} />
+            <IoIosPlayCircle 
+              onClick={navigateToPortfolio} 
+              style={{ fontSize: "1.9rem", color: "red" }} 
+            />
           </div>
         </div>
       </div>

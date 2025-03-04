@@ -1,8 +1,8 @@
 
 import { playMusic } from './playMusic';
-// ------------------------Download PDF---------------------
+// ------------------------Download PDF--------------------- 
 const downloadPDF = () => {
-  const confirmed = window.confirm("Do you want to download the PDF?");
+  const confirmed = window.confirm("Do you want to download the Resume📃??");
   if (confirmed) {
     const link = document.createElement('a');
     link.href = './path/to/your/file.pdf';  // Ensure to set the correct path

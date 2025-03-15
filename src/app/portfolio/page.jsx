@@ -4,16 +4,18 @@ import { IoLogoGithub } from "react-icons/io5";
 import { TiSocialInstagram } from "react-icons/ti";
 import { BsLinkedin } from "react-icons/bs";
 import { playMusic } from './playMusic';
-
+import { playHover } from './playHover';
 
 import NavBar from './NavBar';
+import Projects from './Projects';
+import Skills from './Skills';
 
 // ------------------------Download PDF--------------------- 
 const downloadPDF = () => {
   const confirmed = window.confirm("Do you want to download the Resume📃??");
   if (confirmed) {
     const link = document.createElement('a');
-    link.href = './path/to/your/file.pdf';  
+    link.href = './path/to/your/file.pdf';
     link.download = 'Arijit Roy-s Resume📃.pdf';
     document.body.appendChild(link);
     link.click();
@@ -22,7 +24,7 @@ const downloadPDF = () => {
 };
 
 const handleButtonClick = () => {
-  playMusic(); 
+  playMusic();
 };
 
 const Page = () => {
@@ -30,9 +32,9 @@ const Page = () => {
   return (
     <>
       {/*-------------------------Navbar------------------------*/}
-    
-<NavBar/>
-    
+
+      <NavBar />
+
       {/*----------------------------Header------------------------*/}
 
       {/*-------------------------First Page------------------------*/}
@@ -51,12 +53,14 @@ const Page = () => {
             <div className='flex flex-row gap-2 md:gap-3 lg:gap-3 font-medium mt-4'>
               <button
                 className='hover:bg-black bg-[#ff0000] px-5 py-1 md:px-7 md:py-2 lg:px-7 lg:py-2 border-2 md:border-2 lg:border-2 shadow-md border-white text-white rounded-lg text-[19px] md:text-[21.5px] lg:text-[22px]'
+               onMouseEnter={playHover}
                 onClick={handleButtonClick}
               >
                 Hire Me
               </button>
               <button
                 className='hover:bg-black hover:text-white lg:text-[22px] text-[19px] md:text-[21.5px] border-2 lg:border-2 md:px-6 px-5 lg:px-8 shadow-md border-black rounded-lg'
+                onMouseEnter={playHover}
                 onClick={() => {
                   handleButtonClick();
                   downloadPDF();
@@ -73,7 +77,7 @@ const Page = () => {
       <div>
         <h2 className='flex md:text-xs lg:text-lg anton justify-center'>Mastered Skills</h2>
         <div>
-
+          <Skills />
         </div>
       </div>
 
@@ -82,14 +86,12 @@ const Page = () => {
         <div className='text-center text-[1.15rem] md:text-[1.8rem] px-2 md:px-6 lg:text-[2.5rem] lg:px-10 font-bold bg-[#d1ffa3] '>
           <h1 className='popBlack'>Projects I have Worked On</h1>
         </div>
-        <div>
-          {/* Cards */}
+        <div className='flex p-9 items-center justify-center'>
+          <Projects />
         </div>
       </div>
       {/*----------------------------Contact------------------------*/}
-      <div className='w-full h-[50vh] bg-red-200 rounded-t-lg inset-shadow-sm inset-shadow-indigo-500 flex flex-col justify-center items-center' id='contactPg'>
 
-      </div>
       {/*-----------------------------Footer--------------------------*/}
       <div className="lg:text-[15px] text-center lg:py-2 text-gray-900" id='contactPg'>
         <div className="flex flex-row  gap-[0.2rem] lg:gap-1.5 justify-center items-center cursor-pointer animate-bounce">

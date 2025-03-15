@@ -1,9 +1,10 @@
 import React from 'react'
+import { playHover } from './playHover';
 
 const NavBar = () => {
     return (
         <>
-            <nav className="flex items-center justify-between lg:p-6 p-4" id="homePg">
+            <nav className="flex items-center justify-between lg:p-5 p-3" id="homePg">
                 <div className="flex items-center justify-start flex-1">
                     <a className="flex flex-row items-center">
                         <img
@@ -54,7 +55,10 @@ const NavBar = () => {
                             href="#contactPg"
                             className=" text-lg hover:bg-black font-semibold
  hover:text-white bg-[#ff003a] lg:px-5 lg:py-1 px-3 py-1 rounded-lg text-white font-normal"
+
+                            onMouseEnter={playHover}
                         >
+
                             Contact Me
                         </a>
                     </li>

@@ -1,4 +1,4 @@
-
+import { playHover } from './playHover';
 import { playMusic } from './playMusic';
 // ------------------------Download PDF--------------------- 
 const downloadPDF = () => {
@@ -22,6 +22,7 @@ const Nav = () => {
         <img
           src="./icons/home.png"
           className="w-12 h-12 mx-0 transition-transform transform hover:scale-125 hover:translate-y-[-5px]"
+          onMouseEnter={playHover}
           onClick={() => {
             playMusic();
             window.open('', '_blank');
@@ -30,6 +31,7 @@ const Nav = () => {
         <img
           src="./icons/support.png"
           className="w-15 h-15 mx-0 transition-transform transform hover:scale-125 hover:translate-y-[-5px]"
+          onMouseEnter={playHover}
           onClick={() => {
             playMusic();
             window.open('', '_blank');
@@ -38,6 +40,7 @@ const Nav = () => {
         <img
           src="./icons/camera.png"
           className="w-11 h-11 mx-0 transition-transform transform hover:scale-125 hover:translate-y-[-5px]"
+          onMouseEnter={playHover}
           onClick={() => {
             playMusic();
             window.open('', '_blank');
@@ -47,6 +50,7 @@ const Nav = () => {
         <img
           src="./icons/person.png"
           className="w-11 h-11 mx-0 transition-transform transform hover:scale-125 hover:translate-y-[-5px]"
+          onMouseEnter={playHover}
           onClick={() => {
             playMusic();
             window.open('', '_blank');
@@ -56,24 +60,28 @@ const Nav = () => {
         <img
           src="./icons/internet.png"
           className="w-11 h-11 mx-0 transition-transform transform hover:scale-125 hover:translate-y-[-5px]"
+          onMouseEnter={playHover}
           onClick={() => {
             playMusic();
             window.open('https://www.google.co.in/', '_blank');
           }}
         />
-        
+
+
 
         <img
           src="./icons/calculator.png"
           className="w-12 h-12 mx-0 transition-transform transform hover:scale-125 hover:translate-y-[-5px]"
+          onMouseEnter={playHover}
           onClick={() => {
             playMusic();
             window.open('', '_blank');
           }}
         />
-<img
+        <img
           src="./icons/music.png"
           className="w-12 h-12 mx-0 transition-transform transform hover:scale-125 hover:translate-y-[-5px]"
+          onMouseEnter={playHover}
           onClick={() => {
             playMusic();
             window.open('', '_blank');
@@ -84,6 +92,17 @@ const Nav = () => {
           src="./icons/email.png"
           alt="Icon 3"
           className="w-12 h-12 transition-transform transform hover:scale-125 hover:translate-y-[-5px]"
+          onMouseEnter={playHover}
+          onClick={() => {
+            playMusic();
+            window.open('/', '_blank');
+          }}
+        />
+        <img
+          src="./icons/games.png"
+          alt="Icon 3"
+          className="w-13 h-13 transition-transform transform hover:scale-125 hover:translate-y-[-5px]"
+          onMouseEnter={playHover}
           onClick={() => {
             playMusic();
             window.open('/', '_blank');
@@ -94,6 +113,7 @@ const Nav = () => {
           src="./icons/resume.png"
           alt="Icon 2"
           className="w-13 h-13 mx-0 transition-transform transform hover:scale-125 hover:translate-y-[-5px]"
+          onMouseEnter={playHover}
           onClick={() => {
             playMusic();
             downloadPDF();
@@ -104,6 +124,7 @@ const Nav = () => {
           src="./icons/facebook.png"
           alt="Icon 4"
           className="w-12 h-12 mx-0 transition-transform transform hover:scale-125 hover:translate-y-[-5px]"
+          onMouseEnter={playHover}
           onClick={() => {
             playMusic();
             window.open('https://www.facebook.com/profile.php?id=61565851260816', '_blank');
@@ -115,6 +136,7 @@ const Nav = () => {
           src="./icons/linkedin.png"
           alt="Icon 4"
           className="w-12 h-12 mx-0 transition-transform transform hover:scale-125 hover:translate-y-[-5px]"
+          onMouseEnter={playHover}
           onClick={() => {
             playMusic();
             window.open('https://www.linkedin.com/in/realarijiiiitttt/', '_blank');
@@ -125,6 +147,7 @@ const Nav = () => {
           src="./icons/github.png"
           alt="Icon 4"
           className="w-10 h-10 mx-0 bg-white rounded-full transition-transform transform hover:scale-125 hover:translate-y-[-5px]"
+          onMouseEnter={playHover}
           onClick={() => {
             playMusic();
             window.open('https://github.com/arijiiiitttt', '_blank');
@@ -135,6 +158,7 @@ const Nav = () => {
           src="./icons/instagram.png"
           alt="Icon 4"
           className="w-12 h-12 mx-1 transition-transform transform hover:scale-125 hover:translate-y-[-5px]"
+          onMouseEnter={playHover}
           onClick={() => {
             playMusic();
             window.open('https://www.instagram.com/thearijiiiitttt_/', '_blank');
@@ -144,6 +168,7 @@ const Nav = () => {
           src="./icons/note.png"
           alt="Icon 4"
           className="w-11 h-11 mx-0 transition-transform transform hover:scale-125 hover:translate-y-[-5px]"
+          onMouseEnter={playHover}
           onClick={() => {
             playMusic();
             window.open('/', '_blank');

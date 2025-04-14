@@ -4,8 +4,8 @@ const projects = [
   {
     id: 1,
     title: "Project One",
-    image: "https://via.placeholder.com/300", // Replace with your project image link
-    liveLink: "https://live-project-one.com", // Replace with your live project link
+    image: "", 
+    liveLink: "https://live-project-one.com",
     githubLink: "https://github.com/username/project-one", // Replace with your GitHub project link
   },
   {
@@ -22,13 +22,27 @@ const projects = [
     liveLink: "https://live-project-three.com",
     githubLink: "https://github.com/username/project-three",
   },
+  {
+    id: 4,
+    title: "Project Three",
+    image: "", // Replace with your project image link
+    liveLink: "",
+    githubLink: "",
+  },
+  {
+    id: 5,
+    title: "Project Three",
+    image: "https://via.placeholder.com/300", // Replace with your project image link
+    liveLink: "https://live-project-three.com",
+    githubLink: "https://github.com/username/project-three",
+  },
 ];
 
 const Projects = () => {
   return (
     <div className=" min-h-screen p-6">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex align-center">
           {projects.map((project) => (
             <div
               key={project.id}

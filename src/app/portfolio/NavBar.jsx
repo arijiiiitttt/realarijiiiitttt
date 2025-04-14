@@ -6,10 +6,15 @@ const NavBar = () => {
         <>
             <nav className="flex items-center justify-between lg:p-5 p-3" id="homePg">
                 <div className="flex items-center justify-start flex-1">
-                    <a className="flex flex-row items-center">
+                    <a className="flex items-center group relative">
                         <img
-                            src="./Logos/a.svg"
-                            className="h-12" alt="logo" />
+                            src="./logos/a.png"
+                            className="h-19 transform transition-transform duration-500 group-hover:rotate-180"
+                            alt="logo"
+                        />
+                        <span className="ml-4 text-white text-sm bg-gray-400 bg-opacity-80 px-4 py-2 rounded-lg opacity-0 transition-opacity duration-500 group-hover:opacity-100 shadow-xl">
+                            Hello, I’m Arijit Roy, passionate about web development,curious & eager to tackle impactful projects.
+                        </span>
                     </a>
                 </div>
 
@@ -54,7 +59,8 @@ const NavBar = () => {
                         <a
                             href="#contactPg"
                             className=" text-lg hover:bg-black font-semibold
- hover:text-white bg-[#ff003a] lg:px-5 lg:py-1 px-3 py-1 rounded-lg text-white font-normal"
+ hover:text-white bg-[#ff003a] lg:px-5 lg:py-1 px-3
+  py-1 rounded-lg text-white font-normal"
 
                             onMouseEnter={playHover}
                         >

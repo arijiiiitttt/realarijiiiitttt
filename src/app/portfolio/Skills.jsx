@@ -1,64 +1,65 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const Skills = () => {
-  const images = [
-    "images/image1.jpg",
-    "images/image2.jpg",
-    "images/image3.jpg",
-    "images/image4.jpg",
-    "images/image5.jpg",
-  ];
+const logos = [
+  "js",
+  "react",
+  "vite",
+  "python",
+  "html",
+  "tailwindcss",
+  "nodejs",
+  "java",
+  "mongodb",
+  "css",
+  "bluej",
+];
 
-  const [animationRunning, setAnimationRunning] = useState(true);
-  const sliderRef = useRef(null);
+const Skills = () => {
   const containerRef = useRef(null);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    if (!sliderRef.current || !containerRef.current) return;
-    
-    let slider = sliderRef.current;
-    let container = containerRef.current;
-    let clone = slider.cloneNode(true);
-    clone.setAttribute("aria-hidden", "true");
-    container.appendChild(clone);
+    const container = containerRef.current;
+    if (!container) return;
 
-    let offset = 0;
-    const speed = 0.8; // Slower speed for better loading
-    const totalWidth = slider.offsetWidth;
+    let animationFrameId;
+    let scrollPosition = 0;
 
-    let animationFrame;
     const scroll = () => {
-      if (animationRunning) {
-        offset -= speed;
-        slider.style.transform = `translateX(${offset}px)`;
-        clone.style.transform = `translateX(${offset}px)`;
+      if (!isPaused) {
+        scrollPosition += 1; // Adjust scroll speed here
+        container.scrollLeft = scrollPosition;
 
-        if (Math.abs(offset) >= totalWidth) {
-          offset = 0;
+        // Reset to start when fully scrolled
+        if (scrollPosition >= container.scrollWidth / 2) {
+          scrollPosition = 0;
         }
       }
-      animationFrame = requestAnimationFrame(scroll);
+      animationFrameId = requestAnimationFrame(scroll);
     };
-    
-    setTimeout(scroll, 1000); // Delay to allow images to load
-    return () => cancelAnimationFrame(animationFrame);
-  }, [animationRunning]);
+
+    scroll();
+
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isPaused]);
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div className="skills flex flex-col items-center bg-white py-10">
+      <h4 className="text-2xl font-medium mb-4 anton">Mastered Skills</h4>
+
       <div
+        className="logo-container w-full max-w-[700px] h-[120px] overflow-hidden relative bg-white rounded-lg"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
         ref={containerRef}
-        className="overflow-hidden relative w-[20rem] h-40 whitespace-nowrap"
-        onMouseEnter={() => setAnimationRunning(false)}
-        onMouseLeave={() => setAnimationRunning(true)}
       >
-        <div ref={sliderRef} className="flex items-center absolute">
-          {[...images, ...images].map((src, index) => (
+        <div className="flex w-max animate-scroll whitespace-nowrap">
+          {logos.concat(logos).map((logo, i) => (
             <img
-              key={index}
-              src={src}
-              alt={`Image ${index % images.length + 1}`}
-              className="h-full w-40 mx-2 object-cover rounded-lg shadow-lg"
+              key={i}
+              src={`logos/${logo}.png`}
+              alt={logo}
+              className="h-full px-4 inline-block"
             />
           ))}
         </div>

@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
       <head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
-        <link rel="icon" href="./logos/aa.png" />
+        <link rel="icon" href="./logos/a.png" class="" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const logos = [
+const items = [
   "js",
   "react",
   "vite",
   "python",
   "html",
-  "tailwindcss",
   "nodejs",
   "java",
   "mongodb",
@@ -45,21 +44,21 @@ const Skills = () => {
 
   return (
     <div className="skills flex flex-col items-center bg-white py-10">
-      <h4 className="text-2xl font-medium mb-4 anton">Mastered Skills</h4>
+      <h4 className="text-xl font-medium mb-4 anton">Mastered Skills</h4>
 
       <div
-        className="logo-container w-full max-w-[700px] h-[120px] overflow-hidden relative bg-white rounded-lg"
+        className="  logo-container w-full max-w-[700px] h-[120px] overflow-hidden relative bg-white rounded-lg"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         ref={containerRef}
       >
         <div className="flex w-max animate-scroll whitespace-nowrap">
-          {logos.concat(logos).map((logo, i) => (
+          {items.concat(items).map((logo, i) => (
             <img
               key={i}
-              src={`logos/${logo}.png`}
+              src={`items/${logo}.png`}
               alt={logo}
-              className="h-full px-4 inline-block"
+              className="h-[100px] w-[100px] md:h-[120px] md:w-[120px] lg:h-[137px] lg:w-[137px] object-contain px-2 sm:px-4 inline-block"
             />
           ))}
         </div>

@@ -1,4 +1,6 @@
-import Box from "./otherElements/Box";
+
+import ParentDiv from "./Blocks/ParentDiv";
+import Calendar from "./otherElements/Calendar";
 import Nav from "./otherElements/Nav";
 
 const Website = () => {
@@ -12,7 +14,7 @@ const Website = () => {
           backgroundPosition: "center"
         }}
       >
-        <Box />
+        <ParentDiv/>
         <Nav />
       </div>
     </>

@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from "react";
 const items = [
   "js",
   "react",
-  "vite",
   "python",
   "html",
   "nodejs",
@@ -43,7 +42,7 @@ const Skills = () => {
   }, [isPaused]);
 
   return (
-    <div className="skills flex flex-col items-center bg-white py-10">
+    <div className="skills flex flex-col items-center bg-white py-10 ">
       <h4 className="text-xl font-medium mb-4 anton">Mastered Skills</h4>
 
       <div
@@ -52,7 +51,7 @@ const Skills = () => {
         onMouseLeave={() => setIsPaused(false)}
         ref={containerRef}
       >
-        <div className="flex w-max animate-scroll whitespace-nowrap">
+        <div className="flex w-max animate-scroll item-center flex whitespace-nowrap">
           {items.concat(items).map((logo, i) => (
             <img
               key={i}

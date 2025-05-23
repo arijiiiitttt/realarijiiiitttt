@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+.baground-color {
+  background-color: rgba(245, 245, 245, 0.94);
+}
 
 @font-face {
     font-family: 'Alfa_Slab_Onee';
@@ -31,3 +34,9 @@
     font-family: 'Rubik_Doodle_Shadow', serif;
     font-weight: 400;
   }
+
+
+  /* .custom-cursor {
+    cursor: url('./logos/a.png'), auto;
+  }
+   */

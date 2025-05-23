@@ -23,7 +23,7 @@ const About = () => {
   return (
     <>
     <div
-  className="lg:min-h-screen h-[68vh] flex flex-col justify-center items-center w-full"
+  className="min-h-screen py-10  flex flex-col justify-center items-center w-auto"
   id="aboutPg"
 >
   {/* Section Heading */}

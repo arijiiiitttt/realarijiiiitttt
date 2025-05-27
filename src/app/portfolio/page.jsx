@@ -4,13 +4,12 @@ import { IoLogoGithub } from "react-icons/io5";
 import { TiSocialInstagram } from "react-icons/ti";
 import { BsLinkedin } from "react-icons/bs";
 import { playMusic } from './playMusic';
-
-
 import NavBar from './NavBar';
 // import Projects from './Projects';
 import Skills from './Skills';
 import About from './About';
 import { playHover } from './playHover';
+import Projects from './Projects';
 
 
 // ------------------------Download PDF--------------------- 
@@ -41,9 +40,12 @@ const Page = () => {
       {/*----------------------------Header------------------------*/}
 
       {/*-------------------------First Page------------------------*/}
-      <div className='h-[80vh] flex' id='firstPg'>
-        <h1></h1>
-      </div>
+   
+        <div className="h-[80vh] bg-white flex flex-col items-center justify-center p-4 font-inter">
+
+    
+    </div>
+      
       {/*----------------------------About Page------------------------*/}
       
 <About/>
@@ -60,7 +62,7 @@ const Page = () => {
           <h1 className='popBlack'>Projects I have Worked On</h1>
         </div>
         <div className='flex p-9 items-center justify-center'>
-         
+         <Projects/>
         </div>
       </div>
       {/*----------------------------Contact------------------------*/}

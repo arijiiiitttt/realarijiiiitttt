@@ -171,7 +171,7 @@ const Nav = () => {
           onMouseEnter={playHover}
           onClick={() => {
             playMusic();
-            window.open('/', '_blank');
+            window.open('/noteapp', '_blank');
           }}
         />
 

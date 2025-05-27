@@ -4,6 +4,8 @@ import Clock from '../otherElements/Clock';
 import MoodTracker from '../otherElements/MoodTracker';
 import { FaImage } from 'react-icons/fa';
 import BatteryAndImage from '../otherElements/BatteryAndImage';
+import MusicPlayer from '../otherElements/MusicPlayer';
+
 
 const ParentDiv = ({ onBackgroundChange }) => {
   const [showBgOptions, setShowBgOptions] = useState(false);
@@ -24,10 +26,21 @@ const ParentDiv = ({ onBackgroundChange }) => {
        <BatteryAndImage/>
         <div></div>
       </div>
-      <div className='h-135 flex flex-col justify-center items-center w-1/3 bg-pink-500'>1</div>
+      <div className='h-135 flex flex-col justify-center items-center w-2/5 bg-pink-500'>
+      <img src="./logos/a.png" alt="icon" className="w-23 h-23" />
+      
+      </div>
+
+
+
+
+
+
+
       <div className='h-135 flex flex-col justify-center items-center w-1/3 bg-gray-500'>
         <MoodTracker/>
-        
+        <MusicPlayer/>
+      
         {/* Background Changer Button */}
         {/* <div className="relative mt-4">
           <button 

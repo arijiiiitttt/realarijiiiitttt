@@ -43,7 +43,7 @@ const projects = [
   },
 ];
 
-const Cards = () => {
+const Projects = () => {
   return (
     <div className="min-h-screen bg-white py-10 px-4">
       <div className="max-w-6xl mx-auto">
@@ -117,4 +117,4 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+export default Projects;

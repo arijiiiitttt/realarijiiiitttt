@@ -10,6 +10,9 @@ import About from './About';
 import { playHover } from './playHover';
 import Projects from './Projects';
 import { motion } from 'framer-motion';
+import Contact from './Contact';
+import Footer from './Fooder';
+import FAQ from './FAQ';
 
 // Animation variants
 const containerVariants = {
@@ -68,15 +71,16 @@ const page = () => {
 
       {/*----------------------------Header------------------------*/}
       {/*-------------------------First Page------------------------*/}
-      <motion.div 
-        className="h-[80vh] bg-white flex flex-col items-center justify-center p-4 font-inter"
+      <motion.div
+        className="h-[100vh] bg-white flex flex-col items-center justify-center p-4 font-inter"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
       >
         {/* Add your content here with motion components */}
       </motion.div>
-      
+
+
       {/*----------------------------About Page------------------------*/}
       <motion.div
         initial="hidden"
@@ -99,22 +103,36 @@ const page = () => {
         </motion.div>
       </motion.div>
 
+
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={containerVariants}
+      >
+        <motion.div variants={itemVariants}>
+          <FAQ />
+        </motion.div>
+      </motion.div>
+
+
       {/*----------------------------Projects------------------------*/}
-      <motion.div 
-        className='min-h-screen flex flex-col place-items-center py-10 md:py-5 lg:py-16' 
+      <motion.div
+        className='min-h-screen flex flex-col place-items-center py-10 md:py-5 lg:py-16'
         id='projectPg'
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={containerVariants}
       >
-        <motion.div 
+        <motion.div
           className='text-center text-[1.15rem] md:text-[1.8rem] px-2 md:px-6 lg:text-[2.5rem] lg:px-10 font-bold bg-[#d1ffa3]'
           variants={itemVariants}
         >
           <h1 className='popBlack'>Projects I have Worked On</h1>
         </motion.div>
-        <motion.div 
+        <motion.div
           className='flex p-9 items-center justify-center'
           variants={itemVariants}
         >
@@ -122,10 +140,44 @@ const page = () => {
         </motion.div>
       </motion.div>
 
+
+
+
+
+
+
+
       {/*----------------------------Contact------------------------*/}
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
+        variants={containerVariants}
+      >
+        <motion.div variants={itemVariants}>
+          <Contact />
+        </motion.div>
+      </motion.div>
+
+
+
+
       {/*-----------------------------Footer--------------------------*/}
-      <motion.div 
-        className="lg:text-[15px] text-center lg:py-2 bg-gray-100 text-black w-full" 
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
+        variants={containerVariants}
+      >
+        <motion.div variants={itemVariants}>
+          <Footer />
+        </motion.div>
+      </motion.div>
+
+      {/* <motion.div 
+        className="lg:text-[15px] text-center lg:py-2 bg-white text-black h-[20vh] w-full" 
         id='contactPg'
         initial="hidden"
         whileInView="visible"
@@ -152,7 +204,8 @@ const page = () => {
         >
           © Made with 💖 by realarijit
         </motion.p>
-      </motion.div>
+      </motion.div> */}
+
     </>
   )
 }

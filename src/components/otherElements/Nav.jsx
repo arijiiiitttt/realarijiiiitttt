@@ -53,7 +53,7 @@ const Nav = () => {
           onMouseEnter={playHover}
           onClick={() => {
             playMusic();
-            window.open('', '_blank');
+            window.open('/portfolio', '_blank');
           }}
         />
 

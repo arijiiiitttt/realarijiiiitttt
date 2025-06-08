@@ -91,7 +91,7 @@ const NavBar = () => {
 export default NavBar;
 
 
-
+Bg : bg-[#e7fff8]
 
 
 

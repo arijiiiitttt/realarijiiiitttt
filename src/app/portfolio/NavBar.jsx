@@ -67,7 +67,7 @@ const NavBar = () => {
                         <a href="#aboutPg" onClick={closeMenu} className="hover:text-[#ff003a] transition-colors">About</a>
                     </li>
                     <li className="my-4 lg:my-0">
-                        <a href="blog" onClick={closeMenu} className="hover:text-[#ff003a] transition-colors">Blog</a>
+                        <a href="/underprocess" onClick={closeMenu} className="hover:text-[#ff003a]  pointer transition-colors">Blog</a>
                     </li>
                     <li className="my-4 lg:my-0">
                         <a href="#projectPg" onClick={closeMenu} className="hover:text-[#ff003a] transition-colors">Projects</a>

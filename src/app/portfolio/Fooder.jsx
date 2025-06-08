@@ -7,9 +7,9 @@ export default function Footer() {
         {/* Logo */}
         <div className="flex-shrink-0">
           <img
-            src="/your-logo.png"
+            src="./logos/arijit.png"
             alt="Logo"
-            className="w-32 md:w-36"
+            className="w-30 md:w-20 lg:40"
           />
         </div>
 
@@ -50,7 +50,7 @@ export default function Footer() {
 
       {/* Bottom Line */}
       <p className="mt-6 text-center text-sm text-gray-900">
-        © {new Date().getFullYear()} YourCompany. All rights reserved.
+        © {new Date().getFullYear()}  Made With 💖 by arijiiiitttt
       </p>
     </footer>
   );

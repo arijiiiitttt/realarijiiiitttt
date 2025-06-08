@@ -21,9 +21,11 @@ const faqs = [
 const FAQ = () => {
   return (
     <section className="max-w-4xl mx-auto px-4 py-10">
-      <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center bg-lime-200 text-black inline-block px-4 py-2 rounded">
-        Your Questions Answered (F.A.Q's)
-      </h2>
+      <div className="text-center"> {/* Added this div */}
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-lime-200 text-black inline-block px-4 py-2 rounded">
+          Your Questions Answered (F.A.Q's)
+        </h2>
+      </div>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
           <FAQItem key={index} question={faq.question} answer={faq.answer} />

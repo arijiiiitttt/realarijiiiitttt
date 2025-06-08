@@ -43,7 +43,7 @@ const Skills = () => {
 
   return (
     <div className="skills flex flex-col items-center bg-white py-10 ">
-      <h4 className="text-xl font-medium mb-4 anton">Mastered Skills</h4>
+      <h4 className="text-2xl font-medium mb-4 anton">Mastered Skills</h4>
 
       <div
         className="  logo-container w-full max-w-[700px] h-[120px] overflow-hidden relative bg-white rounded-lg"

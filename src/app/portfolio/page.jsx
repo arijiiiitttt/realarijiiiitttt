@@ -14,6 +14,7 @@ import Contact from './Contact';
 import Footer from './Fooder';
 import FAQ from './FAQ';
 
+
 // Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -77,7 +78,8 @@ const page = () => {
         animate="visible"
         variants={containerVariants}
       >
-        {/* Add your content here with motion components */}
+       
+        
       </motion.div>
 
 
@@ -105,16 +107,7 @@ const page = () => {
 
 
 
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={containerVariants}
-      >
-        <motion.div variants={itemVariants}>
-          <FAQ />
-        </motion.div>
-      </motion.div>
+    
 
 
       {/*----------------------------Projects------------------------*/}
@@ -127,7 +120,7 @@ const page = () => {
         variants={containerVariants}
       >
         <motion.div
-          className='text-center text-[1.15rem] md:text-[1.8rem] px-2 md:px-6 lg:text-[2.5rem] lg:px-10 font-bold bg-[#d1ffa3]'
+          className='text-center text-[1.15rem] md:text-[1.8rem] px-2 md:px-6 lg:text-[2.5rem] lg:px-10 font-bold bg-[#ffe8ec]'
           variants={itemVariants}
         >
           <h1 className='popBlack'>Projects I have Worked On</h1>
@@ -142,7 +135,16 @@ const page = () => {
 
 
 
-
+  <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={containerVariants}
+      >
+        <motion.div variants={itemVariants}>
+          <FAQ />
+        </motion.div>
+      </motion.div>
 
 
 
@@ -156,7 +158,9 @@ const page = () => {
         variants={containerVariants}
       >
         <motion.div variants={itemVariants}>
+      
           <Contact />
+         
         </motion.div>
       </motion.div>
 

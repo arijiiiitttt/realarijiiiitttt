@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { HiOutlineBars3BottomRight, HiOutlineXMark } from "react-icons/hi2";
-import { playHover } from "./playHover";
+import React, { useState, useEffect, useRef } from "react";
+// import { HiOutlineBars3BottomRight, HiOutlineXMark } from "react-icons/hi2"; // Removed react-icons import
+// import { playHover } = "./playHover"; // Commented out, as this file was not resolved
 
 const NavBar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [showToast, setShowToast] = useState(false); // State to control toast visibility
+    const toastTimerRef = useRef(null); // Ref to store the toast timeout ID
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -13,76 +15,142 @@ const NavBar = () => {
         setIsMenuOpen(false);
     };
 
+    // Handler for when mouse enters the logo area
+    const handleLogoMouseEnter = () => {
+        // Clear any existing timer to prevent premature hiding if re-hovered quickly
+        if (toastTimerRef.current) {
+            clearTimeout(toastTimerRef.current);
+        }
+        setShowToast(true); // Show the toast
+        // Set a timer to hide the toast after 3 seconds
+        toastTimerRef.current = setTimeout(() => {
+            setShowToast(false);
+        }, 3000); // Toast disappears after 3 seconds
+    };
+
+    // Handler for when mouse leaves the logo area
+    const handleLogoMouseLeave = () => {
+        // Clear the timer if mouse leaves before it expires, hide immediately
+        if (toastTimerRef.current) {
+            clearTimeout(toastTimerRef.current);
+        }
+        setShowToast(false);
+    };
+
+
     // Close menu when clicking outside
     useEffect(() => {
         const handleClickOutside = (event) => {
+            // Check if the menu is open and the click is outside the nav element
             if (isMenuOpen && !event.target.closest('nav')) {
                 closeMenu();
             }
         };
 
+        // Add event listener for mousedown to detect clicks outside
         document.addEventListener('mousedown', handleClickOutside);
+
+        // Clean up the event listener on component unmount
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [isMenuOpen]);
+    }, [isMenuOpen]); // Re-run effect if isMenuOpen changes
 
     return (
-        <nav className="flex items-center justify-between lg:p-5 p-3" id="homePg">
-            <div className="flex items-center justify-start flex-1">
-                <a className="flex items-center group relative">
+        // The main navigation container, fixed at the top and centered horizontally
+        <nav className="fixed w-full z-50 flex justify-center py-6 md:py-8" id="homePg">
+            {/* The rounded light background container for the actual navbar content */}
+            {/* Increased px-8 for mobile, px-5 for md and larger, to increase gap */}
+            <div className="flex items-center justify-between px-6 gap-x-8 md:gap-x-0 lg:gap-x-0 py-3 rounded-full bg-white shadow-lg border border-gray-200 max-w-fit md:px-5">
+                {/* Logo/Home link section */}
+                <a
+                    href="#homePg"
+                    className="flex items-center group relative mr-6"
+                    onClick={closeMenu}
+                    onMouseEnter={handleLogoMouseEnter} // Show toast on mouse enter
+                    onMouseLeave={handleLogoMouseLeave} // Hide toast on mouse leave
+                >
                     <img
-                        src="./logos/a.png"
-                        className="h-19 transform transition-transform duration-500 group-hover:rotate-180"
+                        src="./logos/a.png" // Path to your logo image
+                        className="h-10 w-10 md:h-12 md:w-12 transform transition-transform duration-500 group-hover:rotate-180 rounded-full" // Larger logo on all screens
                         alt="logo"
                     />
-                    <span className="ml-4 text-white text-sm bg-gray-800 bg-opacity-80 px-4 py-2 rounded-lg opacity-0 transition-opacity duration-500 group-hover:opacity-100 shadow-xl">
-                        Hello, I'm Arijit Roy, passionate about web development, curious & eager to tackle impactful projects.
-                    </span>
+                    {/* Toast message for logo, visible on hover for larger screens, positioned below and ensures text fits */}
+                     <span
+                        className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 text-gray-800 text-base bg-gray-100 bg-opacity-90 px-5 py-3 rounded-lg shadow-xl hidden md:block max-w-sm text-center
+                        transition-opacity duration-300 ${showToast ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                        // pointer-events-none prevents the toast from blocking clicks when hidden
+                    > Heyy👋🏼
+                    </span> 
                 </a>
-            </div>
 
-            {/* Hamburger Menu Icon */}
-            <div className="lg:hidden z-50">
-                <button onClick={toggleMenu} aria-label="Toggle menu">
-                    {isMenuOpen ? (
-                        <HiOutlineXMark className="w-6 h-6" />
-                    ) : (
-                        <HiOutlineBars3BottomRight className="w-6 h-6" />
-                    )}
-                </button>
-            </div>
+                {/* Desktop and Tablet Navigation Items - hidden on small screens, visible from medium screens up */}
+                <div className="hidden md:flex items-center space-x-10 text-gray-800 text-xl font-light">
+                    <a href="#workPg" onClick={closeMenu} className="hover:text-gray-600 transition-colors">About</a>
+                    <a href="#aboutPg" onClick={closeMenu} className="hover:text-gray-600 transition-colors">Projects</a>
 
-            {/* Navigation Items */}
-            <div className={`lg:static lg:flex lg:items-center lg:w-auto lg:opacity-100 lg:translate-y-0 transition-all duration-300 ease-in-out
-                ${isMenuOpen 
-                    ? "fixed inset-0 bg-white z-40 flex items-center justify-center translate-y-0 opacity-100" 
-                    : "fixed -translate-y-full opacity-0 pointer-events-none"}`}
-            >
-                <ul className="flex flex-col lg:flex-row lg:gap-7 text-xl lg:text-[20px] font-light text-center">
-                    <li className="my-4 lg:my-0">
-                        <a href="#homePg" onClick={closeMenu} className="hover:text-[#ff003a] transition-colors">Home</a>
-                    </li>
-                    <li className="my-4 lg:my-0">
-                        <a href="#aboutPg" onClick={closeMenu} className="hover:text-[#ff003a] transition-colors">About</a>
-                    </li>
-                    <li className="my-4 lg:my-0">
-                        <a href="/underprocess" onClick={closeMenu} className="hover:text-[#ff003a]  pointer transition-colors">Blog</a>
-                    </li>
-                    <li className="my-4 lg:my-0">
-                        <a href="#projectPg" onClick={closeMenu} className="hover:text-[#ff003a] transition-colors">Projects</a>
-                    </li>
-                    <li className="my-4 lg:my-0">
-                        <a
-                            href="#contactPg"
-                            className="text-lg hover:bg-black font-semibold hover:text-white bg-[#ff003a] lg:px-5 lg:py-1 px-6 py-2 rounded-lg text-white block"
-                            onMouseEnter={playHover}
-                            onClick={closeMenu}
-                        >
-                            Contact Me
-                        </a>
-                    </li>
-                </ul>
+                    <a href="/underprocess" onClick={closeMenu} className="hover:text-gray-600 transition-colors">Blog</a>
+                    <a href="#resourcePg" onClick={closeMenu} className="hover:text-gray-600 transition-colors">FAQs</a>
+                </div>
+
+                {/* Desktop and Tablet Email Button - hidden on small screens, visible from medium screens up */}
+                <div className="hidden md:block ml-10">
+                    <a
+                        href="mailto:ihyaet@gmail.com"
+                        className="bg-red-500 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-black transition-colors"
+                        // onMouseEnter={playHover} // Commented out due to unresolved dependency
+                        onClick={closeMenu} // Close menu on click
+                    >
+                        Contact Me
+                    </a>
+                </div>
+
+                {/* Hamburger Menu Icon for Mobile - visible on small screens, hidden from medium screens up */}
+                <div className="md:hidden z-50">
+                    <button onClick={toggleMenu} aria-label="Toggle menu" className="text-gray-800">
+                        {isMenuOpen ? (
+                            // 'X' icon when menu is open (using inline SVG)
+                            <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        ) : (
+                            // Hamburger icon when menu is closed (using inline SVG)
+                            <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        )}
+                    </button>
+                </div>
+
+                {/* Mobile Menu Overlay - slides in/out based on 'isMenuOpen' state */}
+                <div className={`md:hidden fixed inset-0 bg-white z-40 flex flex-col items-center justify-center transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-y-0" : "-translate-y-full"}`}>
+                    <ul className="flex flex-col gap-10 text-3xl font-light text-center text-gray-800">
+                        {/* Mobile navigation links */}
+                        <li className="my-4">
+                            <a href="#workPg" onClick={closeMenu} className="hover:text-gray-700 transition-colors">Work</a>
+                        </li>
+                        <li className="my-4">
+                            <a href="#aboutPg" onClick={closeMenu} className="hover:text-gray-700 transition-colors">About</a>
+                        </li>
+                        <li className="my-4">
+                            <a href="#playgroundPg" onClick={closeMenu} className="hover:text-gray-700 transition-colors">Playground</a>
+                        </li>
+                        <li className="my-4">
+                            <a href="#resourcePg" onClick={closeMenu} className="hover:text-gray-700 transition-colors">Resource</a>
+                        </li>
+                        {/* Mobile Email Button */}
+                        <li className="my-4">
+                            <a
+                                href="mailto:ihyaet@gmail.com"
+                                className="text-2xl bg-gray-800 font-semibold text-white px-10 py-4 rounded-full block mt-8"
+                                // onMouseEnter={playHover} // Commented out due to unresolved dependency
+                                onClick={closeMenu} // Close menu on click
+                            >
+                                ihyaet@gmail.com
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     );

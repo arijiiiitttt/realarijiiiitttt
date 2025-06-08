@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-const projects = [
+const projectsData = [
   {
     id: 1,
     title: "E-Commerce Platform",
@@ -20,7 +20,8 @@ const projects = [
     liveLink: "#",
     githubLink: "https://github.com/user/task-manager",
     techStack: ["react", "firebase"],
-  },{
+  },
+  {
     id: 3,
     title: "E-Commerce Platform",
     image: "./logos/ecommerce.png",
@@ -40,14 +41,58 @@ const projects = [
     githubLink: "https://github.com/user/task-manager",
     techStack: ["react", "firebase"],
   },
+  {
+    id: 5,
+    title: "Another Project",
+    image: "https://via.placeholder.com/300x180",
+    description: "A sample project for demonstration.",
+    live: true,
+    liveLink: "https://example.com/another",
+    githubLink: "https://github.com/user/another-project",
+    techStack: ["javascript", "css"],
+  },
+  {
+    id: 6,
+    title: "Yet Another Project",
+    image: "https://via.placeholder.com/300x180",
+    description: "Another sample project for demonstration.",
+    live: false,
+    liveLink: "#",
+    githubLink: "https://github.com/user/yet-another-project",
+    techStack: ["python", "django"],
+  },
+  {
+    id: 7,
+    title: "Final Project",
+    image: "https://via.placeholder.com/300x180",
+    description: "The last sample project for demonstration.",
+    live: true,
+    liveLink: "https://example.com/final",
+    githubLink: "https://github.com/user/final-project",
+    techStack: ["java", "spring"],
+  },
 ];
 
 const Projects = () => {
+  const [visibleProjects, setVisibleProjects] = useState(4); // Initially show 4 projects
+  const [loading, setLoading] = useState(false);
+
+  const handleLoadMore = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setVisibleProjects((prevVisibleProjects) => prevVisibleProjects + 3); // Load 3 more
+      setLoading(false);
+    }, 500); // Simulate loading delay
+  };
+
+  const projectsToShow = projectsData.slice(0, visibleProjects);
+  const hasMoreProjects = visibleProjects < projectsData.length;
+
   return (
     <div className="min-h-screen bg-white py-10 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
+          {projectsToShow.map((project) => (
             <div
               key={project.id}
               className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-md hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between"
@@ -94,7 +139,7 @@ const Projects = () => {
                       className={`relative z-[${10 - i}] -ml-2 first:ml-0 group`}
                     >
                       <img
-                        src={`/items/${tech}.png`}
+                        src={`/items/${tech}.png`} // Make sure this path is correct
                         alt={tech}
                         className="w-8 h-8 rounded-full object-contain border-2 border-white shadow-sm hover:scale-105 transition-transform bg-white p-1"
                         title={tech}
@@ -145,6 +190,19 @@ const Projects = () => {
             </div>
           ))}
         </div>
+
+        {/* "See More" Button */}
+        {hasMoreProjects && (
+          <div className="flex justify-center mt-8">
+            <button
+              onClick={handleLoadMore}
+              className="bg-white text-gray-700 font-semibold py-3 px-6 rounded-xl shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all disabled:opacity-50 disabled:cursor-not-allowed border border-gray-300 text-lg"
+              disabled={loading}
+            >
+              {loading ? "Loading..." : "See More"}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

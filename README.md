@@ -1,4 +1,4 @@
-# ![Your Logo](https://your-logo-url.com/logo.png)  
+# <img src="./public/logos/a.png" width="200" height="210"> 
 # 🚀 Arijit's Portfolio  
 
 Welcome to my portfolio!  

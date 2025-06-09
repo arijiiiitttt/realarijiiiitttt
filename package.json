@@ -19,6 +19,7 @@
     "react-fast-marquee": "^1.6.5",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.2.0",
+    "react-tooltip": "^5.28.1",
     "uuid": "^11.1.0"
   },
   "devDependencies": {

@@ -72,12 +72,12 @@ const NavBar = () => {
                 >
                     <img
                         src="./logos/a.png" // Path to your logo image
-                        className="h-10 w-10 md:h-12 md:w-12 transform transition-transform duration-500 group-hover:rotate-180 rounded-full" // Larger logo on all screens
+                        className="h-12 w-10 md:h-12 md:w-12 transform transition-transform duration-500 group-hover:rotate-180 rounded-full" // Larger logo on all screens
                         alt="logo"
                     />
                     {/* Toast message for logo, visible on hover for larger screens, positioned below and ensures text fits */}
                      <span
-                        className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 text-gray-800 text-base bg-gray-100 bg-opacity-90 px-5 py-3 rounded-lg shadow-xl hidden md:block max-w-sm text-center
+                        className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 text-gray-800 text-sm bg-gray-100 bg-opacity-90 px-5 py-3 rounded-lg shadow-xl hidden md:block max-w-sm text-center
                         transition-opacity duration-300 ${showToast ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                         // pointer-events-none prevents the toast from blocking clicks when hidden
                     > Heyy👋🏼
@@ -127,26 +127,26 @@ const NavBar = () => {
                     <ul className="flex flex-col gap-10 text-3xl font-light text-center text-gray-800">
                         {/* Mobile navigation links */}
                         <li className="my-4">
-                            <a href="#workPg" onClick={closeMenu} className="hover:text-gray-700 transition-colors">Work</a>
+                            <a href="" onClick={closeMenu} className="hover:text-gray-700 transition-colors">About</a>
                         </li>
                         <li className="my-4">
-                            <a href="#aboutPg" onClick={closeMenu} className="hover:text-gray-700 transition-colors">About</a>
+                            <a href="" onClick={closeMenu} className="hover:text-gray-700 transition-colors">Projects</a>
                         </li>
                         <li className="my-4">
-                            <a href="#playgroundPg" onClick={closeMenu} className="hover:text-gray-700 transition-colors">Playground</a>
+                            <a href="/underprocess" onClick={closeMenu} className="hover:text-gray-700 transition-colors">Blog</a>
                         </li>
                         <li className="my-4">
-                            <a href="#resourcePg" onClick={closeMenu} className="hover:text-gray-700 transition-colors">Resource</a>
+                            <a href="" onClick={closeMenu} className="hover:text-gray-700 transition-colors">FAQs</a>
                         </li>
                         {/* Mobile Email Button */}
                         <li className="my-4">
                             <a
-                                href="mailto:ihyaet@gmail.com"
+                                href=""
                                 className="text-2xl bg-gray-800 font-semibold text-white px-10 py-4 rounded-full block mt-8"
                                 // onMouseEnter={playHover} // Commented out due to unresolved dependency
                                 onClick={closeMenu} // Close menu on click
                             >
-                                ihyaet@gmail.com
+                                Contact Me
                             </a>
                         </li>
                     </ul>

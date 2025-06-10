@@ -7,9 +7,9 @@ export default function Footer() {
         {/* Logo */}
         <div className="flex-shrink-0">
           <img
-            src="./logos/arijit.png"
+            src=""
             alt="Logo"
-            className="w-30 md:w-20 lg:40"
+            className="w-14 md:w-15 lg:w-20"
           />
         </div>
 

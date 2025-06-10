@@ -80,7 +80,7 @@ const NavBar = () => {
                         className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 text-gray-800 text-sm bg-gray-100 bg-opacity-90 px-5 py-3 rounded-lg shadow-xl hidden md:block max-w-sm text-center
                         transition-opacity duration-300 ${showToast ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                         // pointer-events-none prevents the toast from blocking clicks when hidden
-                    > Heyy👋🏼
+                    > 👋🏼
                     </span> 
                 </a>
 
@@ -97,7 +97,7 @@ const NavBar = () => {
                 <div className="hidden md:block ml-10">
                     <a
                         href="mailto:ihyaet@gmail.com"
-                        className="bg-red-500 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-black transition-colors"
+                        className="bg-red-500 text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-black transition-colors "
                         // onMouseEnter={playHover} // Commented out due to unresolved dependency
                         onClick={closeMenu} // Close menu on click
                     >

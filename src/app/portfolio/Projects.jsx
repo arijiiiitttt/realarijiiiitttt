@@ -4,8 +4,8 @@ const projectsData = [
   {
     id: 1,
     title: "E-Commerce Platform",
-    headerVideo: "https://example.com/ecommerce-header.mp4", // Replace with your video URL
-    avatarImage: "https://via.placeholder.com/64/FF5733/FFFFFF?text=EC", // Placeholder avatar for consistency
+    headerVideo: "./video/gg.mp4", // Replace with your video URL
+    avatarImage: "./logos/a.png", // Placeholder avatar for consistency
     description:
       "A comprehensive online store built with React for the frontend and Node.js for the backend. Features include user authentication, product listings, shopping cart, and secure payment processing.",
     live: true,
@@ -109,13 +109,13 @@ const Projects = () => {
   const hasMoreProjects = visibleProjects < projectsData.length;
 
   return (
-    <div className="min-h-screen py-10 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7"> {/* Reduced gap for tighter layout */}
+    <div className="min-h-screen py-8 px-2"> {/* Reduced padding for overall smaller section */}
+      <div className="max-w-5xl mx-auto"> {/* Decreased max-width to make cards seem smaller */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"> {/* Reduced gap for tighter layout */}
           {projectsToShow.map((project) => (
             <div
               key={project.id}
-              className="bg-white rounded-xl shadow-lg w-full overflow-hidden transform transition-all duration-300 hover:scale-[1.01] hover:shadow-xl" // Reduced scale for hover
+              className="bg-white p-3 rounded-2xl shadow-lg w-full overflow-hidden transform transition-all duration-300 hover:scale-[1.01] hover:shadow-xl" // Reduced scale for hover
             >
               {/* Header Video/Image Section */}
               <div className="relative aspect-[5/4]">
@@ -125,7 +125,7 @@ const Projects = () => {
                     autoPlay
                     loop
                     muted
-                    className="w-full h-full object-cover rounded-t-2xl"
+                    className="w-full h-full object-cover rounded-xl"
                   />
                 ) : (
                   <img
@@ -137,22 +137,22 @@ const Projects = () => {
               </div>
 
               {/* Main Content Area - contains avatar, text content, tech stack, and button */}
-              <div className="relative px-4 pb-4">
+              <div className="relative px-3 pb-3"> {/* Reduced padding */}
                 {/* Project Avatar - subtle hover effect */}
                 <img
                   src={project.avatarImage}
                   alt={project.title}
-                  className="w-16 h-16 absolute -top-8 left-4 rounded-full border-4 border-white shadow-lg object-cover transform transition-transform duration-200 hover:scale-105"
+                  className="w-14 h-14 absolute -top-7 left-3 rounded-full border-3 border-white shadow-lg object-cover transform transition-transform duration-200 hover:scale-105" // Reduced size and border
                 />
 
                 {/* Text content (Title, Dot, GitHub, Description) */}
-                <div className="pt-10">
+                <div className="pt-8"> {/* Reduced padding-top */}
                   <div className="flex items-center mb-1">
                     {/* Title with sticky Live Status Dot */}
-                    <h2 className="text-lg font-bold text-gray-900 flex-grow">
+                    <h2 className="text-base font-bold text-gray-900 flex-grow"> {/* Reduced font size */}
                       {project.title}
                       <span
-                        className={`inline-block w-3 h-3 rounded-full ml-2 ${
+                        className={`inline-block w-2.5 h-2.5 rounded-full ml-1.5 ${ // Slightly reduced size and margin
                           project.live ? "bg-green-500 animate-pulse-slow" : "bg-red-500"
                         }`}
                         title={project.live ? "Live Project" : "Offline Demo"}
@@ -163,11 +163,11 @@ const Projects = () => {
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-1 text-gray-700 hover:text-gray-900 rounded-full hover:bg-gray-100 transition-all duration-200 transform hover:scale-110 hover:shadow-md"
+                      className="p-0.5 text-gray-700 hover:text-gray-900 rounded-full hover:bg-gray-100 transition-all duration-200 transform hover:scale-110 hover:shadow-md" // Slightly reduced padding
                       title="View Code on GitHub"
                     >
                       <svg
-                        className="w-5 h-5"
+                        className="w-4 h-4" // Reduced icon size
                         fill="currentColor"
                         viewBox="0 0 24 24"
                       >
@@ -175,48 +175,55 @@ const Projects = () => {
                       </svg>
                     </a>
                   </div>
-                  <p className="text-gray-600 text-sm line-clamp-2">
+                  <p className="text-gray-600 text-xs line-clamp-2"> {/* Reduced font size */}
                     {project.description}
                   </p>
 
                   {/* Tech Stack Icons - Moved here, below description. Added a subtle shadow and scale on hover. */}
-                  <div className="flex items-center -ml-2 mt-3"> {/* Removed border-b */}
+                  <div className="flex items-center -ml-1 mt-2"> {/* Reduced negative margin and top margin */}
                     {project.techStack.slice(0, 5).map((tech, i) => (
                       <div
                         key={i}
-                        className={`relative z-[${10 - i}] -ml-2 first:ml-0 group`}
+                        className={`relative z-[${10 - i}] -ml-1.5 first:ml-0 group`} // Further reduced negative margin
                       >
                         <img
                           src={`/items/${tech}.png`} // Make sure this path is correct
                           alt={tech}
-                          className="w-9 h-9 rounded-full object-contain border-2 border-white shadow-sm hover:scale-105 transition-transform bg-white p-0.5 hover:shadow-md" // Added hover:shadow-md
+                          className="w-7 h-7 rounded-full object-contain border-1.5 border-white shadow-sm hover:scale-105 transition-transform bg-white p-0.5 hover:shadow-md" // Reduced size and border
                           title={tech}
                         />
-                        <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 text-[0.6rem] bg-gray-800 text-white rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                        <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-1.5 py-0.5 text-[0.55rem] bg-gray-800 text-white rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"> {/* Adjusted tooltip size */}
                           {tech}
                         </span>
                       </div>
                     ))}
                     {project.techStack.length > 5 && (
-                      <div className="w-9 h-9 rounded-full bg-black text-white flex items-center justify-center text-[0.6rem] font-semibold -ml-2 z-0">
+                      <div className="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center text-[0.55rem] font-semibold -ml-1.5 z-0"> {/* Adjusted size and margin */}
                         +{project.techStack.length - 5}
                       </div>
                     )}
                   </div>
 
                   {/* "View the website" button - Improved hover and focus effects */}
-                  {project.live && project.liveLink && (
-                    <div className="mt-4">
+                  <div className="mt-3"> {/* Reduced top margin */}
+                    {project.live ? (
                       <a
                         href={project.liveLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full flex items-center justify-center py-2 px-4 bg-gray-800 text-white rounded-full shadow-md hover:bg-white hover:text-black hover:border-1 border-black transition-all duration-200 transform hover:scale-[0.933]" // Added hover:scale-[1.02] and hover:shadow-xl
+                        className="w-full flex items-center justify-center py-2.5 px-1 bg-gray-800 text-white text-sm rounded-full shadow-md transition-all duration-200 transform hover:scale-[0.96]" // Adjusted padding and text size
                       >
                         View the website
                       </a>
-                    </div>
-                  )}
+                    ) : (
+                      <button
+                        disabled
+                        className="w-full flex items-center justify-center py-2.5 px-1 bg-gray-300 text-gray-500 text-sm rounded-full cursor-not-allowed" // Adjusted padding and text size
+                      >
+                        Website Unavailable
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -225,11 +232,10 @@ const Projects = () => {
 
         {/* "See More" Button - Improved hover effect */}
         {hasMoreProjects && (
-          <div className="flex justify-center mt-6">
+          <div className="flex justify-center mt-5"> {/* Reduced top margin */}
             <button
               onClick={handleLoadMore}
-              className="bg-white text-gray-700 font-semibold py-2 px-4 rounded-xl shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all duration-200 transform hover:-translate-y-1" // Added hover:-translate-y-1 and hover:shadow-xl
-              disabled={loading}
+              className="bg-white text-black font-semibold p-3  border-1 border-gray-400 text-md rounded-xl shadow-md hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all duration-200 transform hover:-translate-y-0.5 text-sm" 
             >
               {loading ? "Loading..." : "See More"}
             </button>

@@ -42,7 +42,7 @@ const ParentDiv = ({ onBackgroundChange }) => {
         <MusicPlayer/>
       
         {/* Background Changer Button */}
-        {/* <div className="relative mt-4">
+         <div className="relative mt-4">
           <button 
             onClick={() => setShowBgOptions(!showBgOptions)}
             className="p-3 rounded-full bg-white bg-opacity-20 hover:bg-opacity-40 transition-all"
@@ -72,7 +72,7 @@ const ParentDiv = ({ onBackgroundChange }) => {
               </div>
             </div>
           )}
-        </div> */}
+        </div> 
 
 
 
